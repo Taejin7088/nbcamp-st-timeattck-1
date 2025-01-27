@@ -4,10 +4,6 @@ function Form({ addCountry, updateCountry }) {
   const [goldCount, setGoldCount] = useState(0);
   const [silverCount, setSilverCount] = useState(0);
   const [bronzeCount, setBronzeCount] = useState(0);
-  console.log("countryName", countryName);
-  console.log("goldCount", goldCount);
-  console.log("silverCount", silverCount);
-  console.log("bronzeCount", bronzeCount);
 
   const handleSubmit = (e) => {
     e.preventDefault();
