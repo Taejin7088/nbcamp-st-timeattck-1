@@ -7,7 +7,7 @@ function App() {
   const countryListInLocalstorage = JSON.parse(localStorage.getItem(0));
   const [countryList, setCountryList] = useState(countryListInLocalstorage);
 
-  const sortByGoldCount = (countryList) => {
+  const sortContryList = (countryList) => {
     if (soltOtion === "gold") {
       countryList.sort((a, b) => {
         return b.goldCount - a.goldCount;
@@ -37,7 +37,7 @@ function App() {
       return;
     }
     const tempCountryList = [...countryList, tempCountry];
-    sortByGoldCount(tempCountryList);
+    sortContryList(tempCountryList);
     setCountryList(tempCountryList);
     localStorage.setItem(0, JSON.stringify(tempCountryList));
   };
@@ -46,7 +46,7 @@ function App() {
     const tempCountryList = countryList.filter((country) => {
       return country.countryName !== targetCountryName;
     });
-    sortByGoldCount(tempCountryList);
+    sortContryList(tempCountryList);
     setCountryList(tempCountryList);
     localStorage.setItem(0, JSON.stringify(tempCountryList));
   };
@@ -62,7 +62,7 @@ function App() {
       }
       return country;
     });
-    sortByGoldCount(tempCountryList);
+    sortContryList(tempCountryList);
     setCountryList(tempCountryList);
     localStorage.setItem(0, JSON.stringify(tempCountryList));
   };
@@ -79,7 +79,7 @@ function App() {
           onChange={() => {
             soltOtion = "gold";
             const tempCountryList = [...countryList];
-            sortByGoldCount(tempCountryList);
+            sortContryList(tempCountryList);
             setCountryList(tempCountryList);
           }}
         />
@@ -91,7 +91,7 @@ function App() {
           onChange={() => {
             soltOtion = "total";
             const tempCountryList = [...countryList];
-            sortByGoldCount(tempCountryList);
+            sortContryList(tempCountryList);
             setCountryList(tempCountryList);
           }}
         />
